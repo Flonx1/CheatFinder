@@ -15,10 +15,12 @@ namespace CheatFinder
 
         // List of drives to be scanned (dynamically retrieved)
         private readonly string[] _drivesToScan;
+        private readonly Logger _logger;
 
         public DirectoryScanner()
         {
             _drivesToScan = GetAllDrives();
+            _logger = new Logger("logs.txt");
         }
 
         public void CheckFullPC(string[] searchPatterns, string[] folders, string[] files)
@@ -27,7 +29,7 @@ namespace CheatFinder
             {
                 if (Directory.Exists(driveLetter))
                 {
-                    Console.WriteLine($"Scanning drive: {driveLetter}");
+                    _logger.Log($"Scanning drive: {driveLetter}");
 
                     // Scan directories and files for each drive
                     try
@@ -39,12 +41,12 @@ namespace CheatFinder
                     catch (Exception ex)
                     {
                         // Uncomment for error logging
-                        // Console.WriteLine($"[ERROR] An error occurred while scanning drive: {driveLetter}: {ex.Message}");
+                        // _logger.Log($"[ERROR] An error occurred while scanning drive: {driveLetter}: {ex.Message}");
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"[ERROR] Drive {driveLetter} does not exist.");
+                    _logger.Log($"[ERROR] Drive {driveLetter} does not exist.");
                 }
             }
 
@@ -100,7 +102,7 @@ namespace CheatFinder
                                 string[] foundFiles = Directory.GetFiles(currentDirectory, pattern, SearchOption.TopDirectoryOnly);
                                 foreach (string foundFile in foundFiles)
                                 {
-                                    Console.WriteLine($"[FOUND] Found file with pattern '{pattern}' at path: {foundFile}");
+                                    _logger.Log($"[DETECT] Found file with pattern '{pattern}' at path: {foundFile}");
                                 }
                             }
                             catch (UnauthorizedAccessException ex)
@@ -110,7 +112,7 @@ namespace CheatFinder
                             catch (Exception ex)
                             {
                                 // Uncomment for error logging
-                                // Console.WriteLine($"[ERROR] An error occurred while scanning files in directory: {currentDirectory}: {ex.Message}");
+                                // _logger.Log($"[ERROR] An error occurred while scanning files in directory: {currentDirectory}: {ex.Message}");
                             }
                         }
                     }
@@ -121,7 +123,7 @@ namespace CheatFinder
                     catch (Exception ex)
                     {
                         // Uncomment for error logging
-                        // Console.WriteLine($"[ERROR] An error occurred while scanning directory: {currentDirectory}: {ex.Message}");
+                        // _logger.Log($"[ERROR] An error occurred while scanning directory: {currentDirectory}: {ex.Message}");
                     }
                 }
             }
@@ -132,7 +134,7 @@ namespace CheatFinder
             catch (Exception ex)
             {
                 // Uncomment for error logging
-                // Console.WriteLine($"[ERROR] An error occurred while scanning directory: {baseDirectory}: {ex.Message}");
+                // _logger.Log($"[ERROR] An error occurred while scanning directory: {baseDirectory}: {ex.Message}");
             }
         }
 
@@ -167,7 +169,7 @@ namespace CheatFinder
                             string path = Path.Combine(currentDirectory, folder);
                             if (Directory.Exists(path))
                             {
-                                Console.WriteLine($"[FOUND] Found folder: {path}");
+                                _logger.Log($"[DETECT] Found folder: {path}");
                             }
                         }
                     }
@@ -178,7 +180,7 @@ namespace CheatFinder
                     catch (Exception ex)
                     {
                         // Uncomment for error logging
-                        // Console.WriteLine($"[ERROR] An error occurred while checking directories in: {currentDirectory}: {ex.Message}");
+                        // _logger.Log($"[ERROR] An error occurred while checking directories in: {currentDirectory}: {ex.Message}");
                     }
                 }
             }
@@ -189,7 +191,7 @@ namespace CheatFinder
             catch (Exception ex)
             {
                 // Uncomment for error logging
-                // Console.WriteLine($"[ERROR] An error occurred while checking directories in: {baseDirectory}: {ex.Message}");
+                // _logger.Log($"[ERROR] An error occurred while checking directories in: {baseDirectory}: {ex.Message}");
             }
         }
 
@@ -224,7 +226,7 @@ namespace CheatFinder
                             string path = Path.Combine(currentDirectory, file);
                             if (File.Exists(path))
                             {
-                                Console.WriteLine($"[FOUND] Found file: {path}");
+                                _logger.Log($"[DETECT] Found file: {path}");
                             }
                         }
                     }
@@ -235,7 +237,7 @@ namespace CheatFinder
                     catch (Exception ex)
                     {
                         // Uncomment for error logging
-                        // Console.WriteLine($"[ERROR] An error occurred while checking files in: {currentDirectory}: {ex.Message}");
+                        // _logger.Log($"[ERROR] An error occurred while checking files in: {currentDirectory}: {ex.Message}");
                     }
                 }
             }
@@ -246,7 +248,7 @@ namespace CheatFinder
             catch (Exception ex)
             {
                 // Uncomment for error logging
-                // Console.WriteLine($"[ERROR] An error occurred while checking files in: {baseDirectory}: {ex.Message}");
+                // _logger.Log($"[ERROR] An error occurred while checking files in: {baseDirectory}: {ex.Message}");
             }
         }
 
@@ -256,7 +258,7 @@ namespace CheatFinder
             if (_reportedErrors.Add(path))
             {
                 // Uncomment for error logging
-                // Console.WriteLine($"[ERROR] Unauthorized access to directory or file {path}: {message}");
+                // _logger.Log($"[ERROR] Unauthorized access to directory or file {path}: {message}");
             }
         }
     }

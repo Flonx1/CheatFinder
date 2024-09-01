@@ -12,3 +12,14 @@ D:\Src\CheatFinder\CheatFinder\obj\Debug\CheatFinder.csproj.AssemblyReference.ca
 D:\Src\CheatFinder\CheatFinder\obj\Debug\CheatFinder.csproj.CoreCompileInputs.cache
 D:\Src\CheatFinder\CheatFinder\obj\Debug\CheatFinder.exe
 D:\Src\CheatFinder\CheatFinder\obj\Debug\CheatFinder.pdb
+D:\Src\CheatFinder\CheatFinder\bin\Debug\Mono.Cecil.dll
+D:\Src\CheatFinder\CheatFinder\bin\Debug\Mono.Cecil.Mdb.dll
+D:\Src\CheatFinder\CheatFinder\bin\Debug\Mono.Cecil.Pdb.dll
+D:\Src\CheatFinder\CheatFinder\bin\Debug\Mono.Cecil.Rocks.dll
+D:\Src\CheatFinder\CheatFinder\bin\Debug\Mono.Cecil.pdb
+D:\Src\CheatFinder\CheatFinder\bin\Debug\Mono.Cecil.Mdb.pdb
+D:\Src\CheatFinder\CheatFinder\bin\Debug\Mono.Cecil.Pdb.pdb
+D:\Src\CheatFinder\CheatFinder\bin\Debug\Mono.Cecil.Rocks.pdb
+D:\Src\CheatFinder\CheatFinder\obj\Debug\CheatFin.FA3B2C14.Up2Date
+D:\Src\CheatFinder\CheatFinder\bin\Debug\System.CodeDom.dll
+D:\Src\CheatFinder\CheatFinder\bin\Debug\System.CodeDom.xml
