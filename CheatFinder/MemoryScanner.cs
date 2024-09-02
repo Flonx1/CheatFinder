@@ -6,8 +6,6 @@ using System.Text;
 
 public class MemoryScanner
 {
-
-
     private const int PROCESS_ALL_ACCESS = 0x001F0FFF;
     private const int PAGE_READWRITE = 0x04;
     private const int PAGE_READONLY = 0x02;
@@ -26,9 +24,6 @@ public class MemoryScanner
     private static extern bool VirtualQueryEx(IntPtr hProcess, IntPtr lpAddress, out MEMORY_BASIC_INFORMATION lpBuffer, uint dwLength);
 
     [StructLayout(LayoutKind.Sequential)]
-
-
-
     private struct MEMORY_BASIC_INFORMATION
     {
         public IntPtr BaseAddress;
@@ -39,12 +34,12 @@ public class MemoryScanner
         public uint Protect;
         public uint Type;
     }
+
     private readonly Logger _logger;
     public MemoryScanner(string logFilePath)
     {
         _logger = new Logger(logFilePath);
     }
-
 
     public void ScanProcessForPattern(int processId, byte[] pattern, string outputPath)
     {
@@ -65,7 +60,7 @@ public class MemoryScanner
                 MEMORY_BASIC_INFORMATION mbi;
                 if (!VirtualQueryEx(processHandle, address, out mbi, (uint)Marshal.SizeOf(typeof(MEMORY_BASIC_INFORMATION))))
                 {
-                   /// _logger.Log("Failed to query memory.");
+                    _logger.Log("Failed to query memory.");
                     break;
                 }
 
@@ -74,7 +69,17 @@ public class MemoryScanner
 
                 if (mbi.State == 0x1000 && (mbi.Protect == PAGE_READWRITE || mbi.Protect == PAGE_READONLY || mbi.Protect == PAGE_EXECUTE_READWRITE))
                 {
-                    byte[] buffer = new byte[mbi.RegionSize];
+                    byte[] buffer = null;
+                    try
+                    {
+                        buffer = new byte[mbi.RegionSize];
+                    }
+                    catch (OutOfMemoryException ex)
+                    {
+                        _logger.Log("Out of memory when allocating buffer.");
+                        break;
+                    }
+
                     int bytesRead;
                     if (ReadProcessMemory(processHandle, mbi.BaseAddress, buffer, mbi.RegionSize, out bytesRead))
                     {
@@ -91,7 +96,7 @@ public class MemoryScanner
                             }
                             if (match)
                             {
-                                ///_logger.Log($"Pattern found at address {mbi.BaseAddress + i:X}");
+                                _logger.Log($"Pattern found at address {mbi.BaseAddress + i:X}");
                                 found = true;
 
                                 // Read and decode the memory content at the found address
@@ -118,12 +123,23 @@ public class MemoryScanner
 
             if (!found)
             {
-               /// _logger.Log("Pattern not found.");
+                _logger.Log("Pattern not found.");
             }
+        }
+        catch (OutOfMemoryException ex)
+        {
+            _logger.Log("Out of memory: " + ex.Message);
+        }
+        catch (Exception ex)
+        {
+            _logger.Log("An error occurred: " + ex.Message);
         }
         finally
         {
-            CloseHandle(processHandle);
+            if (processHandle != IntPtr.Zero)
+            {
+                CloseHandle(processHandle);
+            }
         }
     }
 }

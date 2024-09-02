@@ -208,14 +208,8 @@ namespace CheatFinder
             // Define a list of large patterns to search for
             byte[][] patterns = new byte[][]
             {
-                 Encoding.ASCII.GetBytes("oneway.wtf"),
-                 Encoding.ASCII.GetBytes("oneway"),
-                 Encoding.ASCII.GetBytes("gishcode"),
-                 Encoding.ASCII.GetBytes("delta"),
-                 Encoding.ASCII.GetBytes("nursultan"),
                  Encoding.ASCII.GetBytes("bushroot"),
                  Encoding.ASCII.GetBytes("arkentoz"),
-                 Encoding.ASCII.GetBytes("deadcode"),
                  Encoding.ASCII.GetBytes("mixware"),
                  Encoding.ASCII.GetBytes("i.gishreloaded"),
                  Encoding.ASCII.GetBytes("wtf.expensive"),
