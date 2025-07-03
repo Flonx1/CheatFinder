@@ -4,13 +4,18 @@ namespace CheatFinder
 {
     internal class Program
     {
+        private static readonly Logger _logger = new Logger("logs.txt");
+
         public static void Main()
         {
+            // Set console title and initial messages
+            Console.Title = "CheatFinder #1.2 / OpenSource Project / Created by Flonxi <3";
             Console.WriteLine("The Program was Activated on your PC, sorry");
             Console.WriteLine("Welcome to CheatFinder");
-            Console.WriteLine("If you want to use the program for a company or other purposes, write @flonxi in Telegram...");
-            Console.WriteLine("Please wait a few minutes for analysis...");
+            Console.WriteLine("Created by Flonxi from Germany <3");
+            Console.WriteLine("Please wait a few minutes for analysis...\n");
 
+            // Create instances of CheatFinder and DirectoryScanner
             var cheatFinder = new CheatFinder();
             var directoryScanner = new DirectoryScanner();
 
@@ -18,11 +23,20 @@ namespace CheatFinder
             string[] files = cheatFinder.GetCheatFiles();
             string[] patterns = cheatFinder.GetSearchPatterns();
 
-            // Check all drives
-            directoryScanner.CheckFullPC(patterns, folders, files);
+            bool isRunningInVM = VMDetection.IsRunningInVM();
+            string vmStatus = isRunningInVM ? "[Detect] The system is running in a virtual machine." : "is not running on Virtual Machine";
 
-            // Check Minecraft process titles
-            cheatFinder.CheckMinecraftTitle();
+            // Log VM status
+            _logger.Log(vmStatus);
+
+
+
+            cheatFinder.StartDetection();
+            cheatFinder.CheckExecutablesOnCDrive();
+            directoryScanner.CheckFullPC(patterns, folders, files);
+            
+
+
         }
     }
 }
