@@ -8,7 +8,7 @@ namespace CheatFinder
 
         public static void Main()
         {
-            var version = 1.4;
+            var version = 1.3;
 
             Console.Title = $"CheatFinder #{version} / OpenSource Project / Created by Flonxi <3";
             Console.WriteLine("The Program was Activated on your PC, sorry");
