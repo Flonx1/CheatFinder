@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -18,106 +19,43 @@ namespace CheatFinder
             _logger = new Logger("logs.txt");
         }
 
-        public string[] GetCheatFolders() => new string[]
+        // Folders List
+        public string[] GetCheatFolders()
         {
-            "Celestial", "NeoWare", "PONOSCLIENT", "Meteor", "Minced", "WexSide", "LampWare",
-            "Baritone", "Matix", "Impact", "Wurst", "ZexisClient", "FlugerClient", "Enormity",
-            "LeonTap", "expensive", "KeazClient", "WinnerClient", "RynWare", "DeadCode",
-            "waveclient", "WhiteCode", "bush1root", "ExcellentClient", "MixWare", "Emortality",
-            "BebraWare", "ExpensiveClient", "Celka", "Calestial", "ExpensiveClientCrack", "Expensive",
-            "Takker", "NiobiumClient", "Niobium", "DoomsDay", "Dooms", "Day", "CortexClient",
-            "Cortex", "Troxill", "Troxillclient", "NoRender", "DreamPool", "cabaletta", "LiquideBounce",
-            "GishCode", "Inertia", "Future", "RusherHack", "Zamorozka", "WintWare", "Nursultan",
-            "Norules", "Akrien", "Eternity", "WEXSIDE", "Rich", "RichPremium", "ArchWare",
-            "BoberWare", "Hitbox", "FLauncher", "ATMOSPHERE", "Wolfram", "Huzuni", "Legit", "FLUX",
-            "Aristois", "NeverHook", "ShitClient", "Bleach", "Zeus", "FreeCam", "ExLoader",
-            "HitBox", "DoomsDayMod", "ExpensiveLib", "stx", "Kirka",
-            "Paralyzed", "nexus", "Twinks", "bleachhack", "Lucid", "Visuals", "DrastiX",
-            "Sotona", "Gorda", "Deathzatter", "SkillClient", "Hexeon", "Chainsaw", "Radoen",
-            "Pandora", "Hazing", "Disco Party", "Volume", "salhack", "Skash",
-            "rt", "Suicide", "Yay", "dark-light-client", "Auxentity", "cxclient", "Nebula",
-            "kamiblue", "amera", "Qwinks", "Cryptic", "Kawaii", "Nova", "meteor-client",
-            "ares-forge", "Atlas", "Onigger", "Parallaxa", "Tyrant", "Tempest", "Icarus",
-            "Triton", "FadeAway", "Hexloit", "ares-fabric",
-            "Cinnamon", "nivia", "Kryptonite", "Slowly", "Future", "TheBoys", "serenity",
-            "Stick", "Quiet", "Wolfram", "BlueBerry", "Flare", "omegam0d", "PHack",
-            "Saturn", "Vega", "Sigma", "Akrien", "Cheese", "BiT", "fatal",
-            "Exist", "Aether", "Rainbow", "Skush", "Veteran", "Grey", "viaforgetill1171",
-            "GarPloit", "Lite", "Exhibition", "Zamorozka", "DramaAlert", "Memestar",
-            "JASTERINGO", "Hex", "Invictus", "Kraken", "FusionX", "Lyfe", "Swifting",
-            "Nexus", "Vatic", "serenity", "Polaris", "Skid", "Atmosphere",
-            "EximiusObf", "Fantasy", "DEVIL", "Serpent", "GubiX", "Krypton",
-            "Squid", "Fall", "DelugeUpdated", "Arion", "JaV", "LiquidBounce",
-            "Floon", "Komplexe", "Colgate", "Pulse", "Nitrogen", "Aware", "brainfreeze",
-            "Celsum", "JamClient", "Wolfram Installer", "Sallos", "Apinity", "depression",
-            "TeamHack", "summit-client-master", "oneway.wtf", "oneway", "evaware", "NightDLC", "Dimasik", "Shkolnik",
-            "Wenose", "Vredux", "NuckerClient", "AlgorithmDLC", "Anfyence", "Newcode", "DeltaClient", "Arbuz", "Essence",
-            "Rockstar", "RocketClient", "TazikClient", "Prestige", "Dissent", "Shipuchka"
-        };
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    string content = client.DownloadString("https://raw.githubusercontent.com/Flonx1/CheatFinder/refs/heads/main/CheatList");
+                    return content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Log($"[ERROR] Failed to load cheat folders: {ex.Message}");
+                return new string[0];
+            }
+        }
 
-        public string[] GetCheatFiles() => new string[]{
-            "JJElytraSwap-1.3.jar",
-            "elytra_swap-1.2.1-1.15.1.jar",
-            "elytra_swap-1.6.4-1.16.1.jar",
-            "elytra_swap-1.3.1-20w07a.jar",
-            "elytra_swap-1.2.2-1.15.2.jar",
-            "elytra_swap-1.2.2-1.15.1.jar",
-            "quick_elytra-2.0.0-mc1.18.2.jar",
-            "elytra-chestplate-swapper-1.3.0-MC1.20.jar",
-            "elytra_swap-1.3.0-1.14.4.jar",
-            "elytra-chestplate-swapper-1.2.1-MC1.19.jar",
-            "elytra-chestplate-swapper-1.2.0-MC1.17.jar",
-            "elytra-chestplate-swapper-1.2.1-MC1.18.jar",
-            "elytra_swap-2.2.0-1.16.2.jar",
-            "elytra_swap-1.3.0.1-1.15.2.jar",
-            "elytra_swap-1.1.0-1.15.jar",
-            "elytra_swap-1.4.0-1.15.jar",
-            "elytra_swap-1.5.0-1.15.jar",
-            "bedrock-miner-1.0.0-for-Minecraft-1.16.x.jar",
-            "mobhealthbar-forge-1.18.2-2.2.0.jar",
-            "mobhealthbar-1.19-v2.1-forge.jar",
-            "mobhealthbar-1-16-5.jar",
-            "mobhealthbar-forge-1.19.3-2.2.0.jar",
-            "mobhealthbar-forge-1.16.5-2.2.0.jar",
-            "mobhealthbar-1-18-1.jar",
-            "mobhealthbar-1-18-1-2-fabric.jar",
-            "mobhealthbar-1-17-1-2-fabric.jar",
-            "mobhealthbar-fabric-1.20.1-2.2.0.jar",
-            "mobhealthbar-forge-1.20.1-2.2.0.jar",
-            "mobhealthbar-1-16-5-2-fabric.jar",
-            "mobhealthbar-1-17-1-fabric.jar",
-            "mobhealthbar-1-16-5-2.jar",
-            "bedrock-miner-1.0.0-for-minecraft-1.18.1.jar",
-            "autototem-1.0.jar",
-            "TickrateChanger-1.0.14.jar",
-            "TickrateChanger-1.0.2.jar",
-            "mobhealthbar-forge-1.19.4-2.2.0.jar",
-            "bedrock-miner-1.0.1-for+Minecraft-1.19.4.jar",
-            "mobhealthbar-forge-1.19-41.0.100-2.1.1.jar",
-            "Hitbox.jar",
-            "Cleaner.exe",
-            "celestial.jar",
-            "minecraft.jar",
-            "nova-api-1.0-SNAPSHOT.jar",
-            "Baritone.jar",
-            "Baritone-1.16.5.jar",
-            "ExcellentClient.jar",
-            "Celestial.exe",
-            "Celka.exe",
-            "Nursultan.exe",
-            "Loader.exe",
-            "Nurik.exe",
-            "Meriada.exe",
-            "Reach.jar",
-            "wild-api-1.0-SNAPSHOT.jar",
-            "lampware-api.jar",
-            "Deadcode.dll",
-            "modid-1.0.jar",
-            "Takker.exe",
-            "Expensive.exe"
-        };
+        // Files list
+        public string[] GetCheatFiles()
+        {
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    string content = client.DownloadString("https://raw.githubusercontent.com/Flonx1/CheatFinder/refs/heads/main/CheatFiles");
+                    return content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Log($"[ERROR] Failed to load cheat files: {ex.Message}");
+                return new string[0];
+            }
+        }
 
-
+        // Config pattern
         public string[] GetSearchPatterns() => new string[]
         {
             "*.celka", "*.wild", "*.deadcode", "*.nur"
@@ -195,6 +133,8 @@ namespace CheatFinder
 
             string[] processNames = { "javaw", "java" };
 
+
+            // Detect per memory the classes Patterns
             byte[][] patterns = new byte[][]
             {
                  Encoding.ASCII.GetBytes("bushroot"),
@@ -205,6 +145,7 @@ namespace CheatFinder
                  Encoding.ASCII.GetBytes("wtf.mixware"),
                  Encoding.ASCII.GetBytes("ru.fals3r"),
                  Encoding.ASCII.GetBytes("ru.arkentoz"),
+                 Encoding.ASCII.GetBytes("wtf.expensive"),
 
             };
 
@@ -281,7 +222,8 @@ namespace CheatFinder
                 "ispanic",
                 "isdestruct",
                 "isunhook",
-                "isunhooked"
+                "isunhooked",
+                "attack"
             };
 
             var patternPresence = new Dictionary<string, bool>();
@@ -356,11 +298,13 @@ namespace CheatFinder
         }
         public void CheckExecutablesOnCDrive()
         {
+
+            // Check the Apps sizes.
             var appsToCheck = new Dictionary<string, long>
-    {
-        { "Telegram.exe", 170L * 1024 * 1024 },
-        { "Spotify.exe", 108L * 1024 * 1024 }
-    };
+            {
+                { "Telegram.exe", 170L * 1024 * 1024 },
+                { "Spotify.exe", 108L * 1024 * 1024 }
+            };
 
             string rootPath = @"C:\";
 

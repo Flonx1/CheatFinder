@@ -127,7 +127,7 @@ namespace CheatFinder
         {
             if (_reportedErrors.Add(path))
             {
-                
+
             }
         }
     }

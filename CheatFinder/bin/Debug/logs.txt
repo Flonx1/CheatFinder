@@ -1,0 +1,33 @@
+30/09/2025 16:02:10: is not running on Virtual Machine
+30/09/2025 16:05:04: is not running on Virtual Machine
+30/09/2025 18:22:07: is not running on Virtual Machine
+30/09/2025 18:22:26: is not running on Virtual Machine
+30/09/2025 18:23:08: is not running on Virtual Machine
+30/09/2025 18:23:24: is not running on Virtual Machine
+30/09/2025 21:00:38: is not running on Virtual Machine
+30/09/2025 21:00:57: [ERROR] Exception while enumerating files: Could not find a part of the path 'C:\Users\flonxi\Documents\Adobe\Premiere Pro\14.0\Adobe Premiere Pro Captured Audio\ai'.
+30/09/2025 21:00:57: [ERROR] Exception while enumerating files: The file cannot be accessed by the system.
+
+30/09/2025 21:00:58: [ERROR] Exception while enumerating files: The file cannot be accessed by the system.
+
+30/09/2025 21:00:59: [ERROR] Exception while enumerating files: The file cannot be accessed by the system.
+
+30/09/2025 21:01:08: [INFO] File size normal: 173,36 MB at C:\Users\flonxi\AppData\Roaming\Telegram Desktop\Telegram.exe
+30/09/2025 21:03:47: is not running on Virtual Machine
+30/09/2025 21:04:05: [ERROR] Exception while enumerating files: Could not find a part of the path 'C:\Users\flonxi\Documents\Adobe\Premiere Pro\14.0\Adobe Premiere Pro Captured Audio\ai'.
+30/09/2025 21:04:05: [ERROR] Exception while enumerating files: The file cannot be accessed by the system.
+
+30/09/2025 21:04:06: [ERROR] Exception while enumerating files: The file cannot be accessed by the system.
+
+30/09/2025 21:04:07: [ERROR] Exception while enumerating files: The file cannot be accessed by the system.
+
+30/09/2025 21:04:12: [INFO] File size normal: 173,36 MB at C:\Users\flonxi\AppData\Roaming\Telegram Desktop\Telegram.exe
+30/09/2025 21:04:30: [ERROR] Exception while enumerating files: Could not find a part of the path 'C:\Users\flonxi\Documents\Adobe\Premiere Pro\14.0\Adobe Premiere Pro Captured Audio\ai'.
+30/09/2025 21:04:30: [ERROR] Exception while enumerating files: The file cannot be accessed by the system.
+
+30/09/2025 21:04:31: [ERROR] Exception while enumerating files: The file cannot be accessed by the system.
+
+30/09/2025 21:04:32: [ERROR] Exception while enumerating files: The file cannot be accessed by the system.
+
+30/09/2025 21:04:37: Scanning drive: C:\
+30/09/2025 21:04:37: Scanning drive: F:\

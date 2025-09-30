@@ -52,7 +52,7 @@ public class MemoryScanner
 
         try
         {
-            IntPtr address = (IntPtr)0x00000000; // Starting address (0 for this example)
+            IntPtr address = (IntPtr)0x00000000; 
             bool found = false;
 
             while (true)
@@ -99,8 +99,7 @@ public class MemoryScanner
                                 _logger.Log($"Pattern found at address {mbi.BaseAddress + i:X}");
                                 found = true;
 
-                                // Read and decode the memory content at the found address
-                                byte[] memoryContent = new byte[pattern.Length * 2]; // Read a bit more than the pattern length
+                                byte[] memoryContent = new byte[pattern.Length * 2]; 
                                 if (ReadProcessMemory(processHandle, mbi.BaseAddress + i, memoryContent, (uint)memoryContent.Length, out bytesRead))
                                 {
                                     string decodedString = Encoding.ASCII.GetString(memoryContent, 0, bytesRead).Trim('\0');
