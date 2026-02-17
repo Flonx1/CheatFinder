@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Detections\LaunchersDetector.cs" />
     <Compile Include="Detections\SizeAnalyzer.cs" />
     <Compile Include="Detections\VMDetection.cs" />
     <Compile Include="List\List.cs" />

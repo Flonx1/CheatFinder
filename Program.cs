@@ -47,6 +47,8 @@ namespace CheatFinder_RECODE
             string vmStatus = VMDetection.IsRunningInVM() ? "[Detect] Virtual Machine: YES" : "Virtual Machine: NO";
             _logger.Log(vmStatus);
 
+            _logger.Log("Starting Loader scan.");
+            new LaunchersDetector().check();
 
             _logger.Log("Starting Memory Scanner...");
             new MemoryScanner().scan();
