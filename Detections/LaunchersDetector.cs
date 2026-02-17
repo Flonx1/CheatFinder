@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,10 +14,23 @@ namespace CheatFinder_RECODE.Detections
 
         public void check()
         {
-            if (!Directory.Exists(APPDATA + "/NTFLoader") || !Directory.Exists(APPDATA + "/NTFLoader/Nursultan") || 
-                !Directory.Exists(APPDATA + "/NTFLoader/Expensive") || !Directory.Exists(APPDATA + "/NTFLoader/Celestial"))
+            string[] paths = {
+                APPDATA + "/NTFLoader",
+                APPDATA + "/NTFLoader/Nursultan",
+                APPDATA + "/NTFLoader/Expensive",
+                APPDATA + "/NTFLoader/Celestial"
+            };
+
+            string[] regPaths = {
+                @"SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\WV2Profile_nursultan",
+                @"SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\WV2Profile_expensive",
+                @"SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\WV2Profile_celestial"
+            };
+
+            if (paths.Any(p => !Directory.Exists(p)) ||
+                regPaths.Any(r => Registry.CurrentUser.OpenSubKey(r) != null))
             {
-                Program._logger.Log("[Detect] NTFLoader.");
+                Program._logger.Log("[Detect] NTFLoader!!");
             }
         }
     }
