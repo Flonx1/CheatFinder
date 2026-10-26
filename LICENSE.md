@@ -1,1 +1,1 @@
-Licensed by CheatFinder Team (CTPAX, Flonxi)
+Licensed by CheatFinder Team (Flonxi)
