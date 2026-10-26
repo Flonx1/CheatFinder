@@ -1,2 +1,11 @@
-bushroot, hitbox, panic, selfdestruct, combat, aura, Sk3dGuard, calestial, suckside, 
-wendowsky, metafaze, argentoz, gishreloaded, fals3r, dreamixx, NTFLoader, starguard, expensive, nursultan,
+bushroot, selfdestruct, Sk3dGuard, calestial, suckside, wendowsky, metafaze, argentoz, gishreloaded, fals3r, dreamixx, NTFLoader, starguard, expensive, nursultan,
+KillAura, TriggerBot, AutoClicker, Autoclicker, Reach, HitBoxExpand, Velocity, AntiKnockback, NoKnockback, FastPlace, FastBreak, Nuker, Scaffold, Tower, Fucker,
+CrystalAura, AutoCrystal, SelfTrap, HoleFiller, Surround, AutoAnchor, AutoDoubleHand, AutoTotem, OffhandTotem, AutoArmor, Criticals, AutoCritical,
+ElytraFly, ElytraTarget, ElytraRecast, Jesus, Spider, Step, LongJump, HighJump, NoFall, Flight, Freecam, NoClip, Phase, Blink, FastFall,
+AimAssist, AimBot, Aimbot, RotationUtils, RotationFaker, SilentAim, Backtrack, HitSelect, Prediction, PingSpoof, PingBypass,
+ESP, Tracers, ChestESP, StorageESP, Xray, XRay, Freelook, Trajectories, HoleESP, EntityESP, PlayerESP, NameTags, Nametags,
+Baritone, PathFinder, Pathfinder, GoalBlock, BaritoneAPI, ElytraBaritone, AutoFarm, AutoFish, AutoMine, AutoSteal, AutoSell, ChestStealer, InventoryCleaner,
+ClickGui, ClickGUI, ModuleManager, ModuleCategory, HackManager, CheatManager, ClientMain, Wrapper,
+net/wurstclient, meteordevelopment/meteorclient, net/ccbluex/liquidbounce, baritone/api, rusherhack, com/rusherhack, impact/client, bleachhack, wtf/bhop,
+nursultanware, expensiveware, celestialware, mixware, wexside, thunderhack, doomsday, deadcode, eternity, archware, boberware, rockstarclient, javelinclient, emortality,
+AttackAura, PacketMine, PacketFly, GrimBypass, AntiCheatBypass, SpartanBypass, VulcanBypass, MatrixBypass, NCPBypass, DisablerAura
