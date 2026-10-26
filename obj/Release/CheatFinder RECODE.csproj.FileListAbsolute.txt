@@ -1,0 +1,8 @@
+F:\source\c#\2026\CheatFinder RECODE\CheatFinder RECODE\bin\Release\CheatFinder RECODE.exe
+F:\source\c#\2026\CheatFinder RECODE\CheatFinder RECODE\bin\Release\CheatFinder RECODE.pdb
+F:\source\c#\2026\CheatFinder RECODE\CheatFinder RECODE\obj\Release\CheatFinder RECODE.csproj.AssemblyReference.cache
+F:\source\c#\2026\CheatFinder RECODE\CheatFinder RECODE\obj\Release\CheatFinder RECODE.csproj.CoreCompileInputs.cache
+F:\source\c#\2026\CheatFinder RECODE\CheatFinder RECODE\obj\Release\CheatFinder RECODE.exe
+F:\source\c#\2026\CheatFinder RECODE\CheatFinder RECODE\obj\Release\CheatFinder RECODE.pdb
+C:\Users\flonxi\AppData\Local\Temp\claude\F--source-c--2026-CheatFinder-RECODE\fbce6c84-bf98-4aa9-bfcd-5c1db3d09832\scratchpad\testbuild\CheatFinder RECODE.exe
+C:\Users\flonxi\AppData\Local\Temp\claude\F--source-c--2026-CheatFinder-RECODE\fbce6c84-bf98-4aa9-bfcd-5c1db3d09832\scratchpad\testbuild\CheatFinder RECODE.pdb
